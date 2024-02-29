@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "outDir": "./dist/",
+        "rootDir": "./src/", 
+        "moduleResolution": "node",
+        "strict": true,
+        "noImplicitAny": false,
+        "strictPropertyInitialization": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "types": []
+    },
+    "include": [ "src/**/*.ts"],
+    "exclude": [
+        "node_modules",
+        "./node_modules",
+        "./node_modules/*",
+        "./node_modules/@types/node/index.d.ts"
+      ]
+}
