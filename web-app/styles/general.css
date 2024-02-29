@@ -1,0 +1,125 @@
+/*--- FONT ---*/
+@font-face {
+    font-family: 'K2D';
+    src: url(fonts/K2D-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'SF-Pro';
+    src: url(fonts/SF-Pro.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'SF-Pro', sans-serif;
+}
+
+body {
+    font-size: 12px;
+    font-weight: 200;
+    background-color: var(--grey);
+}
+
+h1, h2, h3, h4, h5, h6, span, p, a, input, button, label, select, option, textarea{
+    color: var(--black);
+}
+
+/*--- HEADER ---*/
+header{
+    width: 100%;
+    height: 80px;
+    background-color: var(--green);
+    display: flex;
+    justify-content: center;
+
+}
+#header-content{
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#title-section{
+    display: flex;
+    gap: 4px;
+    height: max-content;
+}
+#header-content #website-title{
+    font-size: var(--t-24px);
+    font-weight: 400;
+    font-family: 'K2D', sans-serif;
+}
+#website-logo{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+#search-section{
+    display: flex;
+    align-items: center;
+}
+
+
+.search-box{
+width: fit-content;
+height: fit-content;
+position: relative;
+}
+.input-search{
+    height: 30px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    padding-right: 40px;
+    font-size: var(--t-14px);
+    background-color: transparent;
+}
+.input-search::placeholder{
+    color: var(--black);
+    font-size: var(--t-14px);
+    font-weight: 100;
+}
+.btn-search{
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    background-color: var(--green);
+    pointer-events: painted;
+    transition: all .1s ease-in-out;
+}
+.btn-search:hover{
+    transform: scale(1.1);
+}
+.btn-search img{
+    width: 20px;
+    height: 20px;
+}
+.btn-search:focus ~ .input-search{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid var(--black);
+    transition: all 500ms ;
+}
+.input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid var(--black);
+    transition: all 500ms ;
+}
+  
