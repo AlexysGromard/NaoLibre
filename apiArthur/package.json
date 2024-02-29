@@ -1,0 +1,16 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "project of exercice 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node testArret.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "https-proxy-agent": "^7.0.2",
+    "node-fetch": "^3.3.2"
+  }
+}
