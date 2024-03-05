@@ -153,6 +153,9 @@ main{
     padding: 24px 25px;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* LINES/BUS boxes & LINES*/
@@ -190,6 +193,9 @@ main{
 #disruptions .line-name{
     background-color: #D81414;
 }
+#favorites .line-name{
+    background-color: var(--blue);
+}
 
 .line-description-box{
     display: flex;
@@ -199,6 +205,12 @@ main{
 .line-description-box .line-stop{
     font-size: var(--t-14px);
     font-weight: 500;
+    text-decoration: none;
+    color: var(--black);
+}
+
+a.line-stop:hover{
+    text-decoration: underline;
 }
 
 .line-description-box .line-disruptions{
