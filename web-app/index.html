@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NaoLibre</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="styles/flavicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="styles/flavicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="styles/flavicon/favicon-16x16.png">
+    <link rel="flavicon" href="styles/flavicon/favicon.ico">
+    <link rel="manifest" href="styles/flavicon/site.webmanifest">
     <!-- CSS Files -->
     <link rel="stylesheet" href="styles/colors.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/homepage.css">
+    <meta name="theme-color" content="#84CF39">
 </head>
 <body>
+    <!-- HEADER -->
     <header>
         <div id="header-content">
             <div id="title-section">
@@ -24,6 +32,38 @@
             </div>
         </div>
     </header>
+    <!-- MAIN -->
+    <main>
+        <section id="disruptions">
+            <div class="section-title-box">
+                <h2 class="section-title">List of disruptions today</h2>
+                <h3 class="section-subtitle">Your line could be disrupted</h3>
+            </div>
+            <div class="section-line-boxes">
+                <div class="line-box interactive">
+                    <div class="line-box-header">
+                        <span class="line-name">C1</span>
+                        <div class="line-description-box">
+                            <span class="line-stop">Carnaval de Nantes</span>
+                            <span class="line-disruptions">From 03/03/24 at 7am to 9pm</span>
+                        </div>
+                        <img class="down-arrow" src="styles/assets/down-arrow.png" alt="Down arrow">
+                    </div>
+                    <div class="content">
+                        <p class="content-text">Work at the Galarne stop, lines 5 and 26 diverted in this sector in both directions
+                            <br>
+                            Where to take your bus
+                            <br>
+                            Lines 5 and 26
+                            <br>
+                            - Galarne stops postponed to temporary stops placed on bd Alexandre Millerand<br>
+                            - Pompidou and Hôtel de Région stops postponed to temporary stops placed on bd Général de Bollardière
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 <script src="scripts/header.js"></script>
 </html>
