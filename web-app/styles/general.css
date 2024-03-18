@@ -246,3 +246,8 @@ a.line-stop:hover{
 .section-line-boxes .content-text{
     font-size: var(--t-14px);
 }
+
+/* CHART */
+#average-attendance-chart{
+    max-height: 400px;
+}
