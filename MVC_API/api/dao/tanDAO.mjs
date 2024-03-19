@@ -1,6 +1,8 @@
 import {mongoose} from 'mongoose';
 import Pos from "../model/PositionModel.mjs";
+import Ligne from "../model/LigneModel.mjs";
 import Arret from "../model/ArretModel.mjs";
+import Bus from "../model/BusModel.mjs";
 const schema = new mongoose.Schema({
     login: {type: String, required: true},
     password: {type: String, required: true}
@@ -45,8 +47,32 @@ const tanDAO = {
     removeByLogin: async (login) => {
         //TODO
     },
+    // recupere le temps avant le prochain bus pour chaque ligne et sens a un arret
+    GetTimeAtArret: async (codeArret) => {
+
+        const url = 'https://open.tan.fr/ewp/tempsattente.json/' + codeArret
+        const reponse = agent!=null ? await fetch(url,{agent : agent}) : await fetch(url)
+        const json1 = await reponse.json()
+
+        const listeBus = [];
+        for (const element of json1) {
+            const bus = new Bus(
+              element.ligne.numLigne,
+              element.terminus,
+              element.temps,
+              element.sens,
+              element.arret.codeArret,
+            );
+            listeBus.push(bus);
+          }
+        return listeBus
+    },
+    GetLignes: async () => {
+        const lignes = await new Ligne()
+        return await lignes.getLignes()
+    },
     getCloseArret: async (pos) => {
-        
+
         if (!(pos instanceof Pos)) {
             throw new Error('Le paramêtre n\' est pas un objet position Pos')
         }

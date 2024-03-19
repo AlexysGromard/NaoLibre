@@ -19,6 +19,18 @@ router
             const position = new Pos(req.params.lat, req.params.long)
             res.status(200).send(await tanController.getCloseArret(position))})
 router
+    .route('/lignes')
+        .get(async (req, res) =>{
+            // #swagger.summary = 'un résumé'
+            // #swagger.description = 'une description'
+            res.status(200).send(await tanController.GetLignes())})
+router
+    .route('/tempsattente/:CodeArret')
+        .get(async (req, res) =>{
+            // #swagger.summary = 'un résumé'
+            // #swagger.description = 'une description'
+            res.status(200).send(await tanController.GetTimeAtArret(req.params.CodeArret))})
+router
     .route('/user/:login')
     .get(async (req, res) =>{
         res.status(200).send({message: 'todo'})
