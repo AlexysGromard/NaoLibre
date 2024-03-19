@@ -42,6 +42,10 @@ const data = {
                                           "bsonType": "string",
                                           "description": "the email is required and must be a string"
                                       },
+                                      "point": {
+                                        "bsonType": "int",
+                                        "description": "this attribute represente the point partisipation of users"
+                                      },
                                       "password": {
                                           "bsonType": "string",
                                           "description": "the password is required and must be a string"
@@ -61,35 +65,38 @@ const data = {
                                   "required": [ "_id","note", "line","direction", "date", "dayweek","iduser" ],
                                   "type": "object",
                                   "properties": {
-                                      "_id": {
-                                          "bsonType": "objectId",
-                                          "description": "must be a string and is required"
-                                      },
-                                      "note": {
-                                          "bsonType": "int",
-                                          "description": "must be a string and is required"
-                                      },
-                                      "line": {
-                                          "bsonType": "string",
-                                          "description": "must be a string and is required"
+                                      "nomLigne": {
+                                        "bsonType": "string",
+                                        "description": "must be a string and is required"
                                       },
                                       "direction": {
-                                          "bsonType": "string",
-                                          "description": "must be a string and is required"
+                                        "bsonType": "string",
+                                        "description": "must be a string and is required"
                                       },
-                                      "date": {
-                                          "bsonType": "date",
-                                          "description": "must be a string and is required"
-                                      },
-                                      "dayweek": {
-                                          "bsonType": "string",
-                                          "description": "must be a string and is required"
-                                      },
-                                      "iduser": {
-                                          "bsonType": "objectId",
-                                          "description": "must be a string and is required"
-                                      }
-                                  }
+                                      "Avis" :{
+                                        //"required": [ "iduser","note", "date", "dayweek","iduser" ],
+                                        "type": "array",
+                                        "items" :{ //"properties": {
+                                            "iduser": {
+                                                "bsonType": "objectId",
+                                                "description": "must be a string and is required"
+                                            },
+                                            "note": {
+                                                "bsonType": "int",
+                                                "description": "must be a string and is required"
+                                            },
+                                            
+                                            "dayofweek": {
+                                                "bsonType": "string",
+                                                "description": "must be a string and is required"
+                                            },
+                                            "heure": {
+                                                "bsonType": "int",
+                                                "description": "must be a int and is required"
+                                            }                                            
+                                        } 
+                                    }
+                                }
                               }
                           }
                       }
