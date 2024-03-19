@@ -12,7 +12,7 @@ else {
  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
  console.log("Pas de proxy trouvé")
 }
-const urlBase1 = "https://data.nantesmetropole.fr//api/explore/v2.1/catalog/datasets/244400404_tan-circuits/records?select=route_short_name&limit=-1"
+const urlBase1 = "https://data.nantesmetropole.fr//api/explore/v2.1/catalog/datasets/244400404_tan-circuits/records?select=&lroute_short_nameimit=-1"
 
 let response = agent!=null ? await fetch(urlBase1, {agent: agent}):await fetch(urlBase1)
 let json = await response.json()
