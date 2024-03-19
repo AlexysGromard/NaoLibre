@@ -105,6 +105,7 @@ header{
 .btn-search img{
     width: 20px;
     height: 20px;
+    filter: invert(0%) sepia(68%) saturate(146%) hue-rotate(317deg) brightness(96%) contrast(84%);
 }
 .input-search {
     height: 30px;
@@ -250,4 +251,71 @@ a.line-stop:hover{
 /* CHART */
 #average-attendance-chart{
     max-height: 400px;
+}
+/* FOOTER */
+footer{
+    width: 100%;
+    background-color: var(--white);
+    position: fixed;
+    bottom: 0;
+}
+
+#footer-content{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px 33px;
+    display: flex;
+    justify-content: space-between;
+}
+footer .icon{
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+}
+footer .icon img{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    max-width: 33px;
+}
+footer .icon span{
+    text-align: center;
+    color: #808080;
+}
+
+footer .icon.active{
+    filter: invert(62%) sepia(74%) saturate(390%) hue-rotate(47deg) brightness(100%) contrast(94%);
+}
+
+.icon #search-icon{
+    width: 65%;
+    margin-top: 4px;
+}
+
+/* For Desktop */
+@media (min-width: 768px){
+    #footer-content{
+        margin-bottom: 15px;
+    }
+}
+@media (display-mode: standalone) {
+    footer{
+        padding-bottom: 20px;
+    }
+}
+
+#report-button{
+    background-color: var(--green);
+    border: none;
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+    border: solid 7px var(--grey);
+    margin-top: -50px;
+    cursor: pointer;
 }
