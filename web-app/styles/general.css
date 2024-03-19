@@ -157,6 +157,7 @@ main{
     gap: 20px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
 }
 
 /* LINES/BUS boxes & LINES*/
@@ -318,4 +319,35 @@ footer .icon.active{
     border: solid 7px var(--grey);
     margin-top: -50px;
     cursor: pointer;
+}
+
+/* SEARCHBAR */
+#searchbar{
+    /* DYNAMIC */
+    display: none; 
+}
+#searchbar.active{
+    display: block;
+}
+
+#searchbar-content{
+    position: relative;
+    margin-top: 8px;
+}
+#search-input{
+    width: 100%;
+    padding: 9px 34px;
+    border: none;
+    background-color: var(--white);
+    outline: none;
+    border-radius: 10px;
+    font-size: var(--t-14px);
+}
+
+#search-icon-searchbar{
+    position: absolute;
+    left: 6px;
+    width: 18px;
+    top: 50%;
+    transform: translateY(-50%);
 }
