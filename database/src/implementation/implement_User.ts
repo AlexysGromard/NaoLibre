@@ -9,7 +9,7 @@ import { Personne } from '../d_types';
 
 
 // CONSTANTES ET VARIABLES
-const personnes = data_personnes;
+let personnes : Personne[]= data_personnes;
 const data = data_mongodb; 
 
 
@@ -23,7 +23,7 @@ const data = data_mongodb;
  * 
  * @param personnes : Personne[]
  */
-async function crypterMotsDePasse(personnes: Personne[]): Promise<void> {
+async function crypterMotsDePasse(personnes: Personne[]): Promise<Personne[]> {
   const saltRounds: number = 10; // Niveau de complexité du hachage
 
   // Parcourir toutes les personnes
@@ -43,7 +43,7 @@ async function crypterMotsDePasse(personnes: Personne[]): Promise<void> {
     personne.password = motDePasseCrypte;
   }
 
-  console.log(personnes); // Afficher les personnes avec les mots de passe cryptés
+  return personnes;
 }
 
 
@@ -66,23 +66,12 @@ const url = `${data.name}://${data.host}:${data.port}`;
 try {
   const client = await MongoClient.connect(url);
   const db = client.db(data.database[0].name);
-  const collection = db.collection(data.database[0].collections[0].name);
-
-  // Convert _id property to ObjectId type
-  const documents = personnes.map(personne => ({
-    ...personne,
-    _id: new ObjectId(personne._id)
-  }));
-
   // Crypter les mots de passe
-  crypterMotsDePasse(personnes);
-
-  // Insérer les données dans la collection
-  const result = await collection.insertMany(documents);
-  console.log(`${result.insertedCount} documents insérés avec succès`);
+  personnes = await crypterMotsDePasse(personnes);
+  console.log(personnes); // Afficher les personnes avec les mots de passe cryptés
 
   // Fermer la connexion
   client.close();
 } catch (error) {
-    console.error('Erreur lors de l\'insertion des données :', error);
+  console.error('Erreur lors de l\'insertion des données :', error);
 }

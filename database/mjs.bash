@@ -1,9 +1,8 @@
 #!/bin/bash
 tsc
 
-for file in ./dist/**/*.js; do
-    mv "$file" "${file%.js}.mjs"
-done
+find ./dist -type f -name '*.js' -exec sh -c 'mv "$0" "${0%.js}.mjs"' {} \;
+
 
 
 # si parametre 1 est pas vide
