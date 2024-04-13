@@ -1,0 +1,97 @@
+/*--- FONT ---*/
+@font-face {
+    font-family: 'K2D';
+    src: url(fonts/K2D-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'SF-Pro';
+    src: url(fonts/SF-Pro.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'SF-Pro', sans-serif;
+}
+
+body {
+    font-size: 12px;
+    font-weight: 200;
+    background-color: var(--grey);
+}
+
+.erreur-text{
+    color: #ff0000;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, a, input, button, label, select, option, textarea{
+    color: var(--black);
+}
+
+a{
+    cursor: pointer;
+}
+
+/* MAIN / SECTION */
+main{
+    padding: 24px 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+/* BUTTONS */
+.button{
+    height: 35px;
+    max-width: 340px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--t-14px);
+}
+.button.fill{
+    background-color: var(--green);
+    color: var(--white);
+}
+.button.surrounded{
+    border: 3px solid var(--green);
+    color: var(--green);
+}
+
+/* INPUT FORM */
+.input-container {
+    position: relative;
+}
+.input-logo {
+    position: absolute;
+    left: 6px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.input {
+    padding: 0 35px;
+    height: 35px;
+    width: 100%;
+    border: none;
+    background-color: var(--white);
+    border-radius: 10px;
+    outline: none;
+    font-size: var(--t-14px);
+}
+.input::placeholder {
+    color: #808080;
+}
+

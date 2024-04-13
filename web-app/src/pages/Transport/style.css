@@ -1,0 +1,60 @@
+/* TRANSPORT PAGE */
+
+/* waiting-time-header */
+#waiting-time-header{
+    display: flex;
+    justify-content: space-between;
+}
+#waiting-time-header img{
+    height: max-content;
+    cursor: pointer;
+}
+
+/* CIRCLE */
+.circle-information{
+    background-color: var(--green);
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto;
+}
+#attendance .circle-information{
+    margin-bottom: 12px;
+}
+
+#circle-title{
+    font-size: 64px;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 47px;
+}
+
+#circle-subtitle{
+    font-size: var(--t-14px);
+    color: var(--white);
+    font-weight: 200;
+}
+
+/* ATTENDANCE */
+#attendance{
+    display: flex;
+    flex-direction: column;
+}
+#attendance-icon{
+    width: 50%;
+}
+
+#attendance-value{
+    font-size: var(--t-16px);
+    font-weight: 500;
+    align-self: center;
+}
+
+#attendance-description{
+    font-size: var(--t-12px);
+    align-self: center;
+}

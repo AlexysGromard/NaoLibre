@@ -1,0 +1,19 @@
+{
+  "name": "naolibre",
+  "version": "1.0.0",
+  "description": "NaoLibre is an open-source Android application and Web application that includes an API for Nantes' public transportation system. It is a project developed by students from the University of Nantes.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "i": "npm install --prefix ./API_Tan && npm install --prefix ./API_User && npm install --prefix ./web-app",
+    "start": "concurrently --names \"API_Tan,API_User,web-app\" \"npm run --prefix ./API_Tan start\" \"npm run --prefix ./API_User start\" \"npm run --prefix ./web-app start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

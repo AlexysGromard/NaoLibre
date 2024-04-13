@@ -1,0 +1,81 @@
+/* PAGE FOR DASHBOARD */
+
+/* DASHBOARD SECTION */
+.dashboard-section{
+    margin: 21px auto 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    max-width: 417px;
+}
+.dashboard-section-title{
+    font-size: var(--t-14px);
+    margin-bottom: 4px;
+    display: block;
+    align-self: flex-start;
+}
+
+#dashboard-infos{
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.input-container{
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    #dashboard-infos input[type="submit"]{
+        max-width: 100%;
+    }
+}
+
+/* REWARDS */
+#rewards-number{
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background-color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px auto;
+}
+#rewards-number span{
+    font-size: 64px;
+    color: var(--white);
+    font-weight: 700;
+    text-align: center;
+}
+#rewards-number span::after{
+    content: "Points*";
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin-top: -10px;
+    top: 50%;
+    left: 50%;
+}
+
+/* ACTIONS SECTIONS */
+#actions-btn{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+#actions-btn{
+    width: 100%;
+}
+#actions-btn a{
+    max-width: none;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+    .dashboard-section#actions-section a{
+        max-width: 100%;
+    }
+}

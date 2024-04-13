@@ -1,0 +1,834 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "User / Avis API",
+    "version": "1.0.0",
+    "description": "Documentation de l'API de NaoLibre"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081/naolibre"
+    }
+  ],
+  "tags": [
+    {
+      "name": "User",
+      "description": "Operations en rapport avec les utilisateurs"
+    },
+    {
+      "name": "Avis",
+      "description": "Operations en rapport avec les avis"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Recuperer tous les utilisateurs",
+        "description": "Endpoint pour recuperer tous les utilisateurs",
+        "responses": {
+          "200": {
+            "description": "Liste des utilisateurs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Ajouter un utilisateur",
+        "description": "Endpoint pour ajouter un utilisateur",
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "Informations de l'utilisateur",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "example": {
+                          "type": "string",
+                          "example": "test"
+                        }
+                      }
+                    },
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "example": {
+                          "type": "string",
+                          "example": "example@example.example"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "example": {
+                          "type": "string",
+                          "example": "example"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Utilisateur ajouté avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Utilisateur ajouté avec succès"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur lancée par l'API",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "L'utilisateur existe déjà /OU/ Email or password is null /OU/ Autre erreur"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "example"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{email}/{password}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Recuperer un utilisateur",
+        "description": "Endpoint pour recuperer un utilisateur par son email et mot de passe",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Email de l'utilisateur"
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Mot de passe de l'utilisateur"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur trouvé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Autre erreur",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Utilisateur non trouvé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "description": "Utilisateur non trouvé"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Mettre à jour un utilisateur",
+        "description": "Endpoint pour mettre à jour un utilisateur",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Email de l'utilisateur"
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Mot de passe de l'utilisateur"
+          },
+          {
+            "name": "User",
+            "in": "body",
+            "description": "Informations de l'utilisateur",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "John"
+                        }
+                      }
+                    },
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "john@example.com"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "password"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur mis à jour avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "description": "Utilisateur mis à jour avec succès"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Autre erreur",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "the curent email or password are not correct /OU/ there is not email or password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "description": "there is not email or password"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "example@example.example"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "example"
+                  },
+                  "favori": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "Cardo"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Supprimer un utilisateur",
+        "description": "Endpoint pour supprimer un utilisateur",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Email de l'utilisateur"
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Mot de passe de l'utilisateur"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur supprimé avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Utilisateur supprimé avec succès"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "l'utilisateur n'a pas pu être supprimé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "l'utilisateur n'a pas pu être supprimé /OU/ Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avis": {
+      "get": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Recuperer tous les avis",
+        "description": "Endpoint pour recuperer tous les avis",
+        "responses": {
+          "200": {
+            "description": "Liste des avis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LigneModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avis/{nomLigne}": {
+      "get": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Recuperer un avis",
+        "description": "Endpoint pour recuperer un avis par le nom de la ligne",
+        "parameters": [
+          {
+            "name": "nomLigne",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nom de la ligne"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Avis trouvé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LigneModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Cette ligne n'a pas d'avis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "description": "Cette ligne n'a pas d'avis"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avis/{nomLigne}/{email}/{password}": {
+      "post": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Ajouter un avis",
+        "description": "Endpoint pour ajouter un avis",
+        "parameters": [
+          {
+            "name": "nomLigne",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nom de la ligne"
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Avis",
+            "in": "body",
+            "description": "Informations de l'avis",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "note": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Avis ajouté avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvisModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur lancer par l'API",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "description": "Avis is null /OU/ Ligne or email or password are null /OU/ email or password are not correct /OU/ the note is not correct /OU/ Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserModel": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "email": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "example": {
+                "type": "string",
+                "example": "example@example.example"
+              }
+            }
+          },
+          "password": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "nullable": {
+                "type": "boolean",
+                "example": true
+              },
+              "example": {
+                "type": "string",
+                "example": "password"
+              }
+            }
+          },
+          "point": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "integer"
+              },
+              "example": {
+                "type": "number",
+                "example": 0
+              }
+            }
+          },
+          "favori": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "example": {
+                    "type": "string",
+                    "example": "Cardo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "AvisModel": {
+        "type": "object",
+        "properties": {
+          "iduser": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "nullable": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "note": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "integer"
+              },
+              "enum": {
+                "type": "array",
+                "example": [
+                  1,
+                  2,
+                  3
+                ],
+                "items": {
+                  "type": "number"
+                }
+              },
+              "example": {
+                "type": "number",
+                "example": 1
+              }
+            }
+          },
+          "date": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "example": {
+                "type": "string",
+                "example": "2021-06-01 12:00:00 GMT+0200"
+              }
+            }
+          },
+          "dayweek": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "enum": {
+                "type": "array",
+                "example": [
+                  "lundi",
+                  "mardi",
+                  "mercredi",
+                  "jeudi",
+                  "vendredi",
+                  "samedi",
+                  "dimanche"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "LigneModel": {
+        "type": "object",
+        "properties": {
+          "nomLigne": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "example": {
+                "type": "string",
+                "example": "c6"
+              }
+            }
+          },
+          "avis": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "$ref": "#/components/schemas/AvisModel"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/* BUTTON SHOW ALL */
+
+#showall-btn{
+    background-color: transparent;
+    color: var(--black);
+    border: none;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+#showall-btn:hover{
+    filter: opacity(0.6);
+}

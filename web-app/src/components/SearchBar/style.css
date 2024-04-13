@@ -1,0 +1,18 @@
+/* SEARCHBAR */
+#searchbar-content{
+    position: relative;
+    margin-top: 8px;
+}
+.search-bar{
+    border: none;
+    outline: none;
+    font-size: var(--t-14px);
+}
+
+#search-icon-searchbar{
+    position: absolute;
+    left: 6px;
+    width: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}

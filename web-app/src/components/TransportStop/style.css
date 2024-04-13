@@ -1,0 +1,51 @@
+/* STOP */
+.section-stop-boxes{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.stop-box{
+    background-color: var(--white);
+    padding: 6px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.stop-box-header{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.stop-icon{
+    width: 28px;
+    height: 28px;
+    color: var(--white);
+    font-size: var(--t-16px);
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--blue);
+}
+
+.stop-description-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.stop-description-box .stop-stop{
+    font-size: var(--t-14px);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.stop-description-box .stop-disruptions{
+    font-size: var(--t-12px);
+    font-weight: 200;
+}
+

@@ -1,0 +1,58 @@
+/* PAGE FOR LOGIN AND REGISTER */
+
+/* CONTENT */
+#authentication-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+    gap: 50px;
+}
+
+/* TITLE */
+.authentication-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.authentication-title{
+    font-size: 32px;
+    font-weight: 500;
+}
+.authentication-subtitle{
+    font-size: var(--t-14px);
+    font-weight: 300;
+}
+
+/* ACTIONS */
+#authentication-actions{
+    width: 100%;
+    max-width: 340px;
+}
+
+/* AUTHENTICATION FORM */
+#authentication-form{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+}
+
+#forgot-password{
+    align-self: flex-end;
+    text-decoration: none;
+    font-size: var(--t-14px);
+    font-weight: 300;
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+/* AUTHENTICATION FOOTER */
+#authentication-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 24px;
+}

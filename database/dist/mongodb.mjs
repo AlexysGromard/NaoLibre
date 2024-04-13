@@ -3,6 +3,8 @@ import { MongoClient } from 'mongodb';
 import chalk from 'chalk';
 import { data_mongodb } from './data.mjs';
 const data = data_mongodb;
+// Définition du style personnalisé pour la couleur orange
+const orange = chalk.keyword('orange');
 // PROGRAMME PRINCIPAL
 console.log(chalk.blue.underline.bold.italic.underline(`------------------Début du programme------------------`));
 // connexion à la base de données
@@ -40,6 +42,7 @@ try {
                 }
                 catch (error) {
                     console.error(chalk.red(`Erreur lors de la tentative de création de la collection ${collection.name}`));
+                    console.log(orange.bold('Vérifiez que la base de données et les collections n existent pas déjà'));
                     console.error(error);
                 }
             }
@@ -62,6 +65,8 @@ try {
 }
 catch (error) {
     console.error(chalk.red('Error while trying to connect to MongoDB'));
+    console.log(orange('Vérifiez que le serveur MongoDB est bien démarré'));
+    console.log(orange('Vérifiez que les paramètres de connexion à la base de données sont corrects'));
     console.error(error);
 }
 console.log(chalk.blue.underline.bold.italic.underline(`------------------Fin du programme------------------`));

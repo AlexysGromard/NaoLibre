@@ -1,0 +1,367 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Transport API",
+    "version": "1.0.0",
+    "description": "Documentation de l'API de NaoLibre"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081/naolibre"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Récupérer tous les utilisateurs",
+        "responses": {
+          "200": {
+            "description": "Succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Ajouter un utilisateur",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Utilisateur ajouté avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Mauvaise demande"
+          }
+        }
+      }
+    },
+    "/user/{email}/{password}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Récupérer un utilisateur par son email et mot de passe",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Utilisateur non trouvé"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Mettre à jour un utilisateur",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Utilisateur mis à jour avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Mauvaise demande"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Supprimer un utilisateur par son email et mot de passe",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'utilisateur supprimé avec succès"
+          },
+          "400": {
+            "description": "Mauvaise demande"
+          }
+        }
+      }
+    },
+    "/avis": {
+      "get": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Récupérer tous les avis",
+        "responses": {
+          "200": {
+            "description": "Succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Avis"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avis/{nomLigne}": {
+      "get": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Récupérer un avis par le nom de la ligne",
+        "parameters": [
+          {
+            "name": "nomLigne",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Avis"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Cette ligne n'a pas d'avis"
+          }
+        }
+      }
+    },
+    "/avis/{nomLigne}/{email}/{password}": {
+      "post": {
+        "tags": [
+          "Avis"
+        ],
+        "summary": "Ajouter un avis",
+        "parameters": [
+          {
+            "name": "nomLigne",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Avis"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Avis ajouté avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Avis"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Mauvaise demande"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": ["string", "null"]
+          },
+          "point": {
+            "type": "integer"
+          },
+          "favori": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Avis": {
+        "type": "object",
+        "properties": {
+          "iduser": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "note": {
+            "type": "integer"
+          },
+          "date": {
+            "type": "string"
+          },
+          "dayweek": {
+            "type": "string"
+          }
+        }
+      },
+      "Ligne": {
+        "type": "object",
+        "properties": {
+          "nomLigne": {
+            "type": "string"
+          },
+          "avis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Avis"
+            }
+          }
+        }
+      }
+    }
+  }
+}

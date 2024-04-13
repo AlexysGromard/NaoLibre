@@ -1,0 +1,8 @@
+.button.fill{
+    margin: 11px auto 0px auto;
+}
+.button.fill.loading{
+
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "outDir": "./dist/",
+      "rootDir": "./src/", 
+      "moduleResolution": "node",
+      "strict": true,
+      "noImplicitAny": false,
+      "strictPropertyInitialization": false,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "types":["node"],
+      "typeRoots": ["./typings","./node_modules/@types"]
+    },
+    "types": ["./src/**/*.d.ts","webidl-conversions"],
+    "include": [ "src/**/*.ts","src/**/*.tsx"],
+    "exclude": [
+      "node_modules",
+      "./node_modules",
+      "./node_modules/*",
+      "./node_modules/@types/node/index.d.ts",
+      "./src/**/*.d.ts"
+    ]  
+}
+  

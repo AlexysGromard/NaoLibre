@@ -1,0 +1,40 @@
+/*--- HEADER ---*/
+header{
+    width: 100%;
+    height: 80px;
+    background-color: var(--green);
+    display: flex;
+    justify-content: center;
+
+}
+#header-content{
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#title-section{
+    display: flex;
+    gap: 4px;
+    height: max-content;
+}
+#header-content #website-title{
+    font-size: var(--t-24px);
+    font-family: 'K2D', sans-serif;
+    font-weight: 300;
+}
+#website-logo{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .input-search.open{
+        width: 200px;
+    }
+}

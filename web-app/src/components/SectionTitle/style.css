@@ -1,0 +1,14 @@
+/* SECTION TITLE */
+.section-title-box{
+    display: flex;
+    flex-direction: column;
+    gap: -2px;
+}
+.section-title{
+    font-size: var(--t-20px);
+    font-weight: 500;
+}
+.section-subtitle{
+    font-size: var(--t-14px);
+    font-weight: 300;
+}

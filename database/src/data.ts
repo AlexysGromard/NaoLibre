@@ -1,5 +1,5 @@
 // TYPE
-import { Personne } from './d_types';
+import { Personne, LigneInterface, AvisInterface } from './d_types';
 
 
 // DATA
@@ -16,7 +16,7 @@ export const data_mongodb = {
               {
                   "name": "Users",
                   "validator": { "validator": { "$jsonSchema": {
-                              "required": ["_id", "name", "email", "password", "point"],
+                              "required": ["_id", "name", "email", "password", "point","favori"],
                               "type": "object",
                               "properties": {
                                   "_id": {
@@ -38,6 +38,13 @@ export const data_mongodb = {
                                   "point": {
                                     "bsonType": "int",
                                     "description": "this attribute represente the point partisipation of users"
+                                  },
+                                  "favori": {
+                                    "bsonType": "array",
+                                    "description": "this attribute represente the favori ligne of users",
+                                    "items": {
+                                      "type": "string"
+                                    }
                                   }
 
                               }
@@ -48,18 +55,14 @@ export const data_mongodb = {
               {
                 "name": "Avis",
                 "validator": { "validator": {"$jsonSchema":{
-                    "required": [ "nomLigne", "direction","Avis" ],
+                    "required": [ "nomLigne","avis" ],
                     "type": "object",
                     "properties": {
                         "nomLigne": {
                           "bsonType": "string",
                           "description": "must be a string and is required"
                         },
-                        "direction": {
-                          "bsonType": "string",
-                          "description": "must be a string and is required"
-                        },
-                        "Avis": {
+                        "avis": {
                           "type": "array",
                           "items": {
                             "type": "object",
@@ -73,19 +76,15 @@ export const data_mongodb = {
                                 "description": "must be a string and is required"
                               },
                               "date": {
-                                "bsonType": "date",
+                                "bsonType": "string",
                                 "description": "must be a date and is required"
                               },
-                              "dayofweek": {
+                              "dayweek": {
                                 "bsonType": "string",
                                 "description": "must be a string and is required"
-                              },
-                              "heure": {
-                                "bsonType": "int",
-                                "description": "must be a int and is required"
                               }
                             },
-                            "required": ["iduser", "note", "date", "dayweek", "heure"]
+                            "required": ["iduser", "note", "date", "dayweek"]
                           }
                         }
                       }
@@ -113,69 +112,94 @@ export const data_personnes = [
       "name": "Jacqueline Hoareau",
       "email": "Hoareau@laposte.net",
       "password": "123456",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 1,
       "name": "Suzanne Camus",
       "email": "Camus.Suzanne",
       "password": "azerty",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 2,
       "name": "Michèle Fleury",
       "email": "Michè@exemple.com",
       "password": "motdepasse",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 3,
       "name": "Georges René",
       "email": "Georges.René@exemple.com",
       "password": "12345678",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 4,
       "name": "Théodore Munoz",
       "email": "Munoz.Thé@gmail.com",
       "password": "123456789",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 5,
       "name": "lol",
       "email": "lol@lol.lol",
       "password": "lol",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 6,
       "name": "Henriette Launay",
       "email": "Launay.Henriette@exemple.com",
       "password": "0000",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 7,
       "name": "Roland Bonneau",
       "email": "Bonneau@laposte.net",
       "password": "1999!test@2021",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 8,
       "name": "Sabine Lemaire-Simon",
       "email": "Sabine.LemaireSimon@outlook.com",
       "password": "jourbon",
-      "point": 0
+      "point": 0,
+      "favori": []
   },
   {
       "_id": 9,
       "name": "Aimée Godard",
       "email": "aimé.Godard@gmail.com",
       "password": "j'aime le vin",
-      "point": 0
+      "point": 0,
+      "favori": []
+  }
+];
+
+
+export const data_avis: LigneInterface[] = [
+  {
+    nomLigne: "C6",
+    avis: [
+      {
+        iduser: 7,
+        note: 3,
+        date: (new Date(2024, 3, 26, 17, 21, 0)).toISOString(),
+        dayweek: "Tuesday"
+      }
+    ]
   }
 ];

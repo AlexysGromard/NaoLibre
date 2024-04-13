@@ -1,0 +1,110 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User API Documentation",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080/tan",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/travaux/{ligne}": {
+      "get": {
+        "summary": "travaux",
+        "description": "Donne les travaux sûr une ligne donner si la ligne == -1 alors on donne tout les traveaux",
+        "parameters": [
+          {
+            "name": "ligne",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/arret/{lat}/{long}": {
+      "get": {
+        "summary": "arret au cordonner",
+        "description": "Donner les arrêts proches de cette coordonnée GPS",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "long",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lignes": {
+      "get": {
+        "summary": "Tout les lignes",
+        "description": "donne le nom de tout les lignes",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/arrets": {
+      "get": {
+        "summary": "Tout les lignes",
+        "description": "donne le nom de tout les arrêts",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tempsattente/{CodeArret}": {
+      "get": {
+        "summary": "temps d attentes d",
+        "description": "Donne le temps d",
+        "parameters": [
+          {
+            "name": "CodeArret",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+}

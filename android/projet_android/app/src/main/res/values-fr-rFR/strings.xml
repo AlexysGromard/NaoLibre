@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nao Food</string>
+    <string name="search_title">Rechercher</string>
+    <string name="keyword">Mot-clé</string>
+    <string name="optional">Optionnel</string>
+    <string name="type">Genre</string>
+    <string name="all_categories">Toutes les catégories</string>
+    <string name="number">Nombre</string>
+    <string name="search_button">Rechercher</string>
+    <string name="result_title">Résultats</string>
+    <string name="recipe_title">Recette</string>
+    <string name="preparation_recipe">"Temps de préparation : "</string>
+    <string name="vegetarian">Végétarien</string>
+    <string name="vegan">Végan</string>
+    <string name="alphabetical_order">Ordre alphabétique</string>
+    <string name="default_order">Ordre par défaut</string>
+    <string name="settings">Paramètres</string>
+    <string name="settings_language_title">Langue</string>
+    <string name="system_language">Langue du système</string>
+    <string name="random_recipe">Recette aléatoire</string>
+    <string name="error_search">Une erreur est survenue lors de la recherche.</string>
+    <string name="minutes">" minutes"</string>
+</resources>
