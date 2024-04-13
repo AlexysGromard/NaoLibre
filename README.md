@@ -36,10 +36,10 @@ Theses commands will start the API_Tan, API_User and the web application at the 
 ## Project report
 You can find the projects reports in the `docs` directory. The reports are in French.
 Reports:
-- [Quality of development](docs/qualite_de_developpement.md)
-- [Management](docs/management.md)
-- [Data base](docs/data_base.md)
-- [Automaton](docs/automates.md)
+- [Quality of development](docs/qualite_dev.pdf)
+- [Management](docs/masi.pdf)
+- [Data base](docs/qadr.pdf)
+- [Automaton](docs/automate.pdf)
 
 
 ## Figma
