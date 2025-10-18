@@ -27,6 +27,7 @@ jobs:
     needs: check
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment: VPS
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
