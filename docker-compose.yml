@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+
+  api_tan:
+    build: ./API_Tan
+    restart: on-failure
+    env_file: .env
+    environment:
+      - PORT=8080
+      - MONGO_URL=mongodb://mongo:27017
+      - MONGO_DB=NaoLibre
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+
+  api_user:
+    build: ./API_User
+    restart: on-failure
+    env_file: .env
+    environment:
+      - PORT=8081
+      - MONGO_URL=mongodb://mongo:27017
+      - MONGO_DB=NaoLibre
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+
+  web:
+    build: ./web-app
+    restart: on-failure
+    env_file: .env
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+
+volumes:
+  mongodata:
