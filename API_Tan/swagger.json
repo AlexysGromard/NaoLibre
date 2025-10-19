@@ -5,8 +5,7 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "localhost:8080/tan",
-  "basePath": "/",
+  "basePath": "/tan",
   "schemes": [
     "http",
     "https"

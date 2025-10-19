@@ -14,7 +14,8 @@ const config = {
         description: '',
     },
     tags: [ ],
-    host: 'localhost:'+serverPort+APIPATH,
+    // On ne spécifie pas de host, Swagger utilisera l'URL courante
+    basePath: APIPATH,
     schemes: ['http', 'https'],
 };
 
